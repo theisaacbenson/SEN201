@@ -1,80 +1,138 @@
-# Student Management System (SMS)
+PROJECT TITLE
 
-## Project Overview
-The Student Management System is designed to manage student records such as adding, viewing, and deleting student information in an organized manner.
+Student Management System (SMS)
 
----
+A simple Python program used to add, view, and delete student records.
 
-## Software Development Life Cycle (SDLC)
+SOFTWARE DEVELOPMENT LIFE CYCLE (SDLC)
+1. Requirement Analysis
 
-### 1. Requirement Analysis
-The purpose of the system is to store and manage student data efficiently.
+The goal of the project is to manage student records.
 
-**Functional Requirements**
-- Add student records
-- View student records
-- Delete student records
-- Exit the system
+Functional Requirements
 
-**Non-Functional Requirements**
-- User-friendly
-- Reliable
-- Platform independent
+Add a student
 
----
+View all students
 
-### 2. System Design
-The system is designed as a menu-driven application.
+Delete a student
 
-**System Components**
-- Student Record Module
-- User Interface Module
-- Data Storage Module
+Exit the system
 
-**Design Nomenclature**
-- Student ID
-- Student Name
-- Student Records
+Non-Functional Requirements
 
-All names and terminologies used in the design are consistent across the system.
+Easy to use
 
----
+Runs on any system with Python installed
 
-### 3. Implementation
-The system is implemented as a console-based application.
+Data stored temporarily during execution
 
-During implementation:
-- The user interacts with a menu interface
-- Student data is stored logically during program execution
-- Each system function performs a specific task such as adding or deleting records
+2. System Design
 
-The implementation follows the system design and requirements.
+The system is designed as a menu-driven console application.
 
----
+Main Components
 
-### 4. Testing
-The system was tested using:
-- Valid data inputs
-- Invalid data inputs
-- Boundary conditions
+students → dictionary to store student data
 
-The system produced correct results during testing.
+add_student() → adds a new student
 
----
+view_students() → displays all students
 
-### 5. Deployment
-The system can be deployed on any computer system with basic software requirements.
+delete_student() → removes a student
 
----
+main() → controls program flow
 
-### 6. Maintenance
-Future maintenance may include:
-- Enhancing system security
-- Adding data persistence
-- Improving system performance
-- Updating system features
+📌 Note:
+All function names used here are the same names used in the implementation, as required.
 
----
+3. Implementation (Python Code)
 
-## GitHub Submission
-This repository contains the full SDLC documentation of the Student Management System project.
+Create a file named student_management_system.py
+
+# Student Management System
+
+students = {}
+
+def add_student():
+    student_id = input("Enter student ID: ")
+    name = input("Enter student name: ")
+    students[student_id] = name
+    print("Student added successfully.\n")
+
+def view_students():
+    if not students:
+        print("No students found.\n")
+    else:
+        print("Student Records:")
+        for student_id, name in students.items():
+            print(f"ID: {student_id}, Name: {name}")
+        print()
+
+def delete_student():
+    student_id = input("Enter student ID to delete: ")
+    if student_id in students:
+        del students[student_id]
+        print("Student deleted successfully.\n")
+    else:
+        print("Student not found.\n")
+
+def main():
+    while True:
+        print("Student Management System")
+        print("1. Add Student")
+        print("2. View Students")
+        print("3. Delete Student")
+        print("4. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            add_student()
+        elif choice == "2":
+            view_students()
+        elif choice == "3":
+            delete_student()
+        elif choice == "4":
+            print("Exiting program...")
+            break
+        else:
+            print("Invalid choice. Try again.\n")
+
+main()
+
+4. Testing
+
+The system was tested by:
+
+Adding multiple students
+
+Viewing student records
+
+Deleting existing and non-existing students
+
+Checking invalid menu inputs
+
+All functions worked as expected.
+
+5. Deployment
+
+The program can be deployed by:
+
+Installing Python
+
+Running the file using:
+
+python student_management_system.py
+
+6. Maintenance
+
+Future improvements may include:
+
+Saving data to a file or database
+
+Editing student records
+
+Adding user authentication
+
+Creating a graphical interface
